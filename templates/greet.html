@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Case Study</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="#about">About</a>
+        <a href="#database-schema">Database Schema</a>
+        <a href="#postgresql-queries">PostgreSQL Queries</a>
+        <a href="#github">GitHub</a>
+
+    </div>
+
+    <div class="container">
+        <h1>Welcome to MySQL Case Study</h1>
+        <p>{{ greeting }}</p>
+        <p>Thank you for participating in our MySQL case study!</p>
+        <p>In this case study, we aim to explore various aspects of MySQL database management and its application in
+            real-world scenarios.</p>
+        <p>Throughout the case study, you will have the opportunity to learn about:</p>
+        <ul>
+            <li>Database design and schema creation</li>
+            <li>SQL queries for data manipulation and retrieval</li>
+            <li>Database administration and optimization techniques</li>
+            <li>Integration of MySQL with web applications using frameworks like Flask</li>
+        </ul>
+        <p>We hope you find this case study informative and engaging. Feel free to explore and interact with the MySQL
+            database as you proceed through the study.</p>
+        <p>Once again, welcome aboard, and let's dive into the world of MySQL!</p>
+
+        <div id="about">
+            <h2>About</h2>
+            <p>Welcome to our MySQL Case Study!</p>
+            <p>In this MySQL case study, we embark on an exciting journey into the world of art and data analysis.
+                Leveraging the power of MySQL, we delve deep into a rich dataset encompassing paintings, artists,
+                museums, and more, sourced from the renowned <a href="https://www.kaggle.com/datasets/mexwell/famous-paintings">Famous Paintings dataset</a>.</p>
+            <p>We harness the capabilities of various technologies, including PostgreSQL, PgAdmin4, Pandas, and SQLAlchemy,
+                to conduct an in-depth analysis of the dataset. Our exploration covers a wide range of topics, from data
+                loading and manipulation to insightful SQL queries and analysis.</p>
+            <p>The SQL queries we craft provide valuable insights into the art world, enabling data-driven decision-making
+                processes and fostering a deeper understanding of the dataset. From identifying popular painting styles
+                to analyzing museum opening hours, each query uncovers unique aspects of the art dataset.</p>
+            <p>This case study not only showcases the power of MySQL for data analysis but also highlights the intersection
+                of art and technology. Through our exploration, we aim to inspire further research and discovery in the
+                realm of art and data analytics.</p>
+        </div>
+
+        <div class="section" id="database-schema">
+            <h2>Database Schema</h2>
+            <!-- <img src="{{ url_for('static', filename='Dataset Image.png') }}" alt="Image description"> -->
+            <p>The MySQL database schema used in this case study is designed to effectively organize and store the art-related data. It consists of multiple tables, each representing different entities such as paintings, artists, museums, and more.</p>
+            <p>Here's an overview of the main tables and their relationships:</p>
+            <ul>
+                <li><strong>work:</strong> Contains information about individual paintings, including their titles, artists, and associated museums.</li>
+                <li><strong>artist:</strong> Stores details about artists, such as their names, nationalities, and styles.</li>
+                <li><strong>museum:</strong> Represents museums and includes data such as museum names, locations, and operating hours.</li>
+                <li><strong>subject:</strong> Records the subjects or themes depicted in paintings.</li>
+                <li><strong>canvas_size:</strong> Describes the sizes of canvases used for paintings.</li>
+                <li><strong>product_size:</strong> Contains information about product sizes related to paintings, such as sale prices and regular prices.</li>
+                <li><strong>image_link:</strong> Stores links to images of paintings.</li>
+                <li><strong>museum_hours:</strong> Defines the opening and closing hours of museums on different days.</li>
+            </ul>
+            <p>The relationships between these tables are established through primary and foreign key constraints, ensuring data integrity and enabling efficient querying.</p>
+            <p>Overall, the database schema provides a comprehensive structure for storing and managing art-related data, facilitating various analyses and insights.</p>
+        </div>
+
+
+        <div class="section" id="postgresql-queries"> <!-- Updated section name -->
+            <h2>PostgreSQL Queries</h2>
+            <p>These queries provide valuable insights into the art dataset, allowing researchers, art enthusiasts, and analysts to explore trends, patterns, and relationships within the data.</p>
+
+            <div class="section" id="postgresql-queries">
+                <h2>PostgreSQL Queries</h2>
+                <table>
+                    <tr>
+                        <th>Question</th>
+                        <th>Query</th>
+                    </tr>
+                    <tr>
+                        <td>Retrieve the titles and artists of all paintings created after a certain year.</td>
+                        <td>SELECT title, artist FROM paintings WHERE creation_year > {year};</td>
+                    </tr>
+                    <tr>
+                        <td>Calculate the total number of paintings in each style category.</td>
+                        <td>SELECT style, COUNT(*) AS total_paintings FROM paintings GROUP BY style;</td>
+                    </tr>
+                    <tr>
+                        <td>Find the museums with the highest number of paintings on display.</td>
+                        <td>SELECT museum_name, COUNT(*) AS total_paintings FROM museums JOIN paintings ON museums.id = paintings.museum_id GROUP BY museum_name ORDER BY total_paintings DESC LIMIT 5;</td>
+                    </tr>
+                    <tr>
+                        <td>Determine the average price of paintings in each size category.</td>
+                        <td>SELECT size_category, AVG(price) AS average_price FROM paintings GROUP BY size_category;</td>
+                    </tr>
+                    <tr>
+                        <td>Identify the most common subjects depicted in paintings.</td>
+                        <td>SELECT subject, COUNT(*) AS total_paintings FROM paintings GROUP BY subject ORDER BY total_paintings DESC LIMIT 10;</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+
+
+        <div class="section" id="github">
+            <h2>GitHub</h2>
+            <p>Explore the source code and contribute to this project on GitHub:</p>
+            <p><a href="https://github.com/Sanidhya572/SQL-Case-Study-Painting-Dataset.git">GitHub Repository</a></p>
+        </div>
+        
+        
+        
+
+        <!-- <h2 id="database-schema">Database Schema</h2>
+        <p>This section outlines the structure and design of the MySQL database schema used in the case study.</p>
+        <h2 id="database">Database</h2>
+        <p>This section provides access to the MySQL database and allows you to interact with the data.</p> -->
+        
+        <!-- <a href="/">Go back</a> -->
+        
+        
+        <div class="goback-section">
+            <a href="/" class="goback">Go back</a>
+        </div>
+    </div>
+</body>
+
+</html>
+

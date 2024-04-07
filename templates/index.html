@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Page</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"> <!-- Link to your separate CSS file -->
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='postgre.jpeg') }}" alt="Image description">
+        <br>
+        <h1>Welcome to our Flask App!</h1>
+        <form action="/greet" method="post">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+</body>
+</html>
